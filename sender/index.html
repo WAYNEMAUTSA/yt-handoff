@@ -85,22 +85,22 @@ async function handleShare(config, info) {
       body: JSON.stringify(entry),
     });
     if (!res.ok) throw new Error("write failed");
-    document.getElementById("status").textContent = "Sent! ✅ Closing...";
+    document.getElementById("status").textContent = "Sent! Closing Now...";
     setTimeout(() => window.close(), 800);
   } catch (e) {
     document.getElementById("status").textContent =
-      "\u274C Could not reach your desktop's database. Check your phone has internet and that the settings were entered correctly (try re-scanning the QR code).";
+      "Could not reach your desktop's database. Check your phone has internet and that the settings were entered correctly (try re-scanning the QR code).";
   }
 }
 
 function renderSettings(existing) {
   const app = document.getElementById("app");
   app.innerHTML = `
-    <h1>Send to Desktop \u2014 Setup</h1>
-    <button id="scanBtn">\ud83d\udcf7 Scan QR code from desktop</button>
+    <h1>Send to Desktop Setup</h1>
+    <button id="scanBtn">Scan QR code from desktop</button>
     <video id="preview" style="width:100%;border-radius:8px;margin-top:10px;display:none;"></video>
     <canvas id="canvas" style="display:none;"></canvas>
-    <button id="switchCamBtn" class="secondary" style="display:none;">\ud83d\udd04 Switch camera</button>
+    <button id="switchCamBtn" class="secondary" style="display:none;">Switch camera</button>
     <div style="text-align:center;margin:12px 0;color:#666;font-size:12px;">or enter manually</div>
     <label>Firebase Realtime Database URL</label>
     <input id="dbUrl" value="${existing ? existing.databaseURL : ""}" placeholder="https://your-project-default-rtdb.firebaseio.com" />
