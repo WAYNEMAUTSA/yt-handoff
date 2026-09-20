@@ -1,0 +1,11 @@
+{
+  "manifest_version": 3,
+  "name": "YouTube Continue Watching",
+  "version": "1.0.0",
+  "description": "Get a switch-to-this-device prompt when you're watching YouTube on your phone.",
+  "permissions": ["storage", "notifications", "alarms", "offscreen"],
+  "host_permissions": ["https://*.firebaseio.com/*"],
+  "background": { "service_worker": "background.js" },
+  "action": { "default_popup": "popup.html" },
+  "options_page": "options.html"
+}
